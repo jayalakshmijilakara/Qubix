@@ -1,7 +1,7 @@
-## Qubix
+# Qubix
 
 Qubix Assessment
 
 #### License
+MIT
 
-mit
