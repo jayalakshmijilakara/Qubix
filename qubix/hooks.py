@@ -245,8 +245,15 @@ app_license = "mit"
 
 
 fixtures = [
+   
     {
         "dt": "Workflow",
         "filters": [["name", "in", ["Special Price Approval Workflow"]]]
+    },
+   
+    {
+        "dt": "Notification",
+        "filters": [["name", "in", ["For HO", "For RSM"]]]
     }
 ]
+
