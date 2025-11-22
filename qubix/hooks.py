@@ -83,7 +83,7 @@ app_license = "mit"
 # ------------
 
 # before_install = "qubix.install.before_install"
-# after_install = "qubix.install.after_install"
+after_install = "qubix.install.after_install"
 
 # Uninstallation
 # ------------
