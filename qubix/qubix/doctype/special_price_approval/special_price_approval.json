@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "SPA-.#####",
  "creation": "2025-11-22 00:54:15.736146",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -15,6 +16,12 @@
   "sales_order_reference",
   "section_break_rdir",
   "items",
+  "approvals_section",
+  "asm_approved_by",
+  "column_break_tmdp",
+  "rsm_approved_by",
+  "column_break_dift",
+  "ho_approved_by",
   "section_break_lvnx",
   "remarks"
  ],
@@ -54,20 +61,24 @@
    "options": "Sales Person"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nSubmitted\nRSM Approved\nHO Approved\nRejected"
+   "options": "Draft\nSubmitted\nRSM Approved\nHO Approved\nRejected",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_qmfx",
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "sales_order_reference",
    "fieldtype": "Link",
    "label": "Sales Order Reference",
-   "options": "Sales Order"
+   "options": "Sales Order",
+   "read_only": 1
   },
   {
    "fieldname": "remarks",
@@ -82,23 +93,103 @@
    "fieldname": "items",
    "fieldtype": "Table",
    "label": "Items",
-   "options": "Special Price Approval Item"
+   "options": "Special Price Approval Item",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_lvnx",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "approvals_section",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "asm_approved_by",
+   "fieldtype": "Link",
+   "label": "ASM Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_tmdp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "rsm_approved_by",
+   "fieldtype": "Link",
+   "label": "RSM Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dift",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "ho_approved_by",
+   "fieldtype": "Link",
+   "label": "HO Approved By",
+   "options": "User",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-22 01:21:19.952041",
+ "modified": "2025-11-23 22:22:42.873169",
  "modified_by": "Administrator",
  "module": "Qubix",
  "name": "Special Price Approval",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HO",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RSM",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ASM",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,

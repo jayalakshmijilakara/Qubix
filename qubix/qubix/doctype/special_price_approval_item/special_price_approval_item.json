@@ -25,19 +25,22 @@
    "fieldname": "quantity",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Quantity"
+   "label": "Quantity",
+   "reqd": 1
   },
   {
    "fieldname": "requested_rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Requested Rate"
+   "label": "Requested Rate",
+   "reqd": 1
   },
   {
    "fieldname": "approved_rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Approved Rate"
+   "label": "Approved Rate",
+   "reqd": 1
   },
   {
    "fieldname": "reason",
@@ -49,7 +52,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-22 01:02:55.232746",
+ "modified": "2025-11-22 23:49:05.135259",
  "modified_by": "Administrator",
  "module": "Qubix",
  "name": "Special Price Approval Item",
