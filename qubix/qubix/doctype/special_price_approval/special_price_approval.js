@@ -75,13 +75,20 @@ frappe.ui.form.on("Special Price Approval", {
 
 
 
-        if (frm.doc.status === "HO Approved" && !frm.is_new()) {
-            frm.add_custom_button(__("Print Approval"), function() {
-                frappe.ui.get_print_settings({
-                    doctype: frm.doctype,
-                    docname: frm.docname,
-                    print_format: "Special Price Approval Format"
-                });
+      if (frm.doc.status === "HO Approved" && !frm.is_new()) {
+            frm.add_custom_button(__("Print Approval"), function () {
+                const doctype = frm.doc.doctype;
+                const docname = frm.doc.name;
+                const print_format = "Special Price Approval Format"; 
+                const no_letterhead = 0;
+
+                const url = `/api/method/frappe.utils.print_format.download_pdf`
+                    + `?doctype=${encodeURIComponent(doctype)}`
+                    + `&name=${encodeURIComponent(docname)}`
+                    + `&format=${encodeURIComponent(print_format)}`
+                    + `&no_letterhead=${no_letterhead}`;
+
+                window.open(url);
             }, __("Actions"));
         }
     },
