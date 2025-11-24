@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "BU-.###",
+ "creation": "2025-11-24 17:00:53.807847",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "state",
+  "city",
+  "financial_year",
+  "asm_name",
+  "period",
+  "total_budget",
+  "approved_amount",
+  "utilized_amount",
+  "column_break_iaxo",
+  "budget_allocation",
+  "activity_date",
+  "payment_type",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fetch_from": "budget_allocation.state",
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "Territory",
+   "read_only": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fetch_from": "budget_allocation.financial_year",
+   "fieldname": "financial_year",
+   "fieldtype": "Link",
+   "label": "Financial Year",
+   "options": "Fiscal Year",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "budget_allocation.asm_name",
+   "fieldname": "asm_name",
+   "fieldtype": "Link",
+   "label": "ASM Name",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "budget_allocation.period",
+   "fieldname": "period",
+   "fieldtype": "Select",
+   "label": "Period",
+   "options": "\nQ1 (Apr\u2013Jun)\nQ2 (Jul\u2013Sep)\nQ3 (Oct\u2013Dec)\nQ4 (Jan\u2013Mar)",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "budget_allocation.total_budget",
+   "fieldname": "total_budget",
+   "fieldtype": "Currency",
+   "label": "Total Budget",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_amount",
+   "fieldtype": "Currency",
+   "label": "Approved Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "utilized_amount",
+   "fieldtype": "Currency",
+   "label": "Utilized Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_iaxo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "now",
+   "fieldname": "activity_date",
+   "fieldtype": "Date",
+   "label": "Activity Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "label": "Payment Type",
+   "options": "\nCash\nBank Transfer\nUPI\nCheque\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "budget_allocation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Budget Allocation",
+   "options": "Budget Allocation",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-24 17:43:24.268677",
+ "modified_by": "Administrator",
+ "module": "Qubix",
+ "name": "Budget Utilization",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

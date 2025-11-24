@@ -1,0 +1,28 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2025-11-24 17:06:35.232411",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-11-24 17:40:43.599206",
+ "modified_by": "Administrator",
+ "module": "Qubix",
+ "name": "Budget Utilization (Query)",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    bu.name AS \"ID:Link/Budget Utilization:120\",\n    bu.state AS \"State:Data:120\",\n    bu.city AS \"City:Data:120\",\n    bu.financial_year AS \"Financial Year:Data:140\",\n    bu.asm_name AS \"ASM Name:Data:150\",\n    bu.period AS \"Period:Data:100\",\n    ba.total_budget AS \"Total Budget:Currency:120\",\n    bu.approved_amount AS \"Approved Amount:Currency:150\",\n    bu.utilized_amount AS \"Utilized Amount:Currency:150\",\n    (IFNULL(bu.utilized_amount, 0) / IFNULL(ba.total_budget, 1)) * 100\n        AS \"Utilization Percent:Percent:120\",\n    bu.activity_date AS \"Activity Date:Date:120\",\n    bu.payment_type AS \"Payment Type:Data:120\",\n    bu.remarks AS \"Remarks:Text:200\"\nFROM `tabBudget Utilization` bu\nLEFT JOIN `tabBudget Allocation` ba\n    ON ba.state = bu.state\n   AND ba.financial_year = bu.financial_year\n   AND ba.asm_name = bu.asm_name\n   AND ba.period = bu.period\n\n  \n\n\nORDER BY\n    bu.activity_date DESC;\n",
+ "ref_doctype": "Budget Utilization",
+ "report_name": "Budget Utilization (Query)",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

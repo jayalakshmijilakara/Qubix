@@ -106,3 +106,30 @@ frappe.ui.form.on("Special Price Approval", {
         }
     }
 });
+
+
+
+frappe.ui.form.on("Special Price Approval", {
+     refresh(frm) {
+         if (frm.doc.status === 'HO Approved' && !frm.doc.sales_order_reference) {
+             frm.add_custom_button(__("Make Sales Order"), function () {
+                frappe.call({
+                    method:"qubix.api.make_sales_order",
+                    args:{
+                        custom_special_price_approval_ref : frm.doc.name,
+
+                    },
+                    callback: function(r){
+                        if(!r.exc && r.message){
+                            frappe.set_route("Form","Sales Order",r.message);
+                        }
+                    }
+                
+                })
+            
+
+             })
+
+         }
+     }
+})
